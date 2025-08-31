@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+* {
+  font-family: "SF Pro Display", sans-serif;
+}
+
+:root {
+  --background: #F3F4F6;
+  --foreground: #525364;
+  --border-colour-light: #EAECEF;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+
+
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #F3F4F6;;
+    --foreground: #525364;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+@layer utilities {
+  /* Label*/
+  .g-l-1 {
+    @apply text-[14px] text-[var(--foreground)]
+  }
+
+    /* Label Bold*/
+  .g-lb-1 {
+    @apply text-[14px] font-bold text-[var(--label-colour-light)] 
+  }
+}
