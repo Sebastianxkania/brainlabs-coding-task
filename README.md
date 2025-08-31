@@ -1,6 +1,6 @@
 # Brainlabs-coding-task-sebastian-kania
 
-# Django + Postgres + Next.js (TypeScript) + Docker (dev)
+# Django (Pydantic) + Postgres + Next.js (TypeScript + TanStack) + Docker
 
 ## Quick start
 
