@@ -5,5 +5,9 @@ export const getCsrfToken = async () => {
   await axios.get("http://localhost:8000/api/csrf/", {
     withCredentials: true,
   });
+
   // At this point, the 'csrftoken' cookie is set by Django in the browser
+
+  // return true for tanstack query to consider it as a successful fetch
+  return true
 };

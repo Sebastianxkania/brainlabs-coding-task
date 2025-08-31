@@ -3,12 +3,12 @@ import { getCsrfToken } from "@/api_services/csrf/csrfServices";
 
 
 export const useFetchCsrf = () => {
-  return useQuery(
-    {
-      queryKey: ['csrf'],                             
-      queryFn: async () => {                   
-        return await getCsrfToken()   
+    return useQuery(
+      {
+        queryKey: ['csrf'],                             
+        queryFn: async () => {                   
+          return await getCsrfToken()   
+        }
       }
-    }
-  );
+    );
 };
