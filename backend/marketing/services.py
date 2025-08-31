@@ -16,6 +16,7 @@ def create_campaign(campaign: MarketingSchemas.CampaignCreate) -> MarketingModel
 
     try:
         with transaction.atomic():
+            # Create a new campaign in the database
             campaign = MarketingModels.Campaign.objects.create(name=campaign.name, budget=campaign.budget, spend=campaign.spend, status=campaign.status)
     except Exception as e:
         raise ValueError(f"Failed to create campaign: {str(e)}")
@@ -30,6 +31,7 @@ def get_campaigns() -> list[MarketingModels.Campaign]:
         list[MarketingModels.Campaign]: List of all campaigns.
     """
     try:
+        # Retrieve all campaigns from the database
         campaigns = MarketingModels.Campaign.objects.all()
         return list(campaigns)
     except Exception as e:

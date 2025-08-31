@@ -1,8 +1,9 @@
 "use client";
-import { useEffect, useState } from 'react';
-import { getCsrfToken } from "@/api_services/csrf/csrfServices";
-import Cookies from "js-cookie";
 
+// Next.js
+import { useState } from 'react';
+
+// Components
 import Loader from "@/components/Loader/Loader"
 import Table from "@/components/Table/Table";
 import AddCampaignPopup from '@/components/AddCampaignPopup/AddCampaignPopup';
@@ -10,29 +11,16 @@ import { Popup } from '@/components/Popup/Popup';
 
 // Hooks
 import { useFetchCampaigns } from "@/hooks/campaignHooks";
+import { useFetchCsrf } from "@/hooks/csrfHooks";
 
 export default function Home() {
 
+  // Hooks
   const campaigns = useFetchCampaigns();
+  useFetchCsrf();
+
+  // States
   const [popupIsOpen, setPopupIsOpen] = useState<boolean>(false);
-
-
-  useEffect(() => {
-    // Fetch CSRF token on component mount
-    const fetchCsrfToken = async () => {
-      try {
-        await getCsrfToken();
-
-        const csrfToken = Cookies.get("csrftoken");
-        console.log('CSRF Token:', csrfToken);
-      } catch (error) {
-        console.error('Error fetching CSRF token:', error);
-      }
-    };
-
-    fetchCsrfToken();
-  }, []);
-
 
   return (
     <div className="flex justify-center items-center h-screen">

@@ -27,6 +27,8 @@ const Table = ({
   pagination?: number; // default pagination number
 }) => {
 
+
+  // Table Columns Definition
   const columns:ColumnDef<RowT, unknown>[] = [
     {
       id: "name",

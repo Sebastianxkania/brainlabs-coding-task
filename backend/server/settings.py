@@ -78,20 +78,10 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # Headers
 CORS_ALLOW_HEADERS = list(default_headers) + ["xsrfHeaderName", "withcredentials", "xsrfcookiename"]
 
-# CORS
-# _cors_env = os.environ.get("CORS_ALLOWED_ORIGINS", "")
-# if _cors_env:
-#     CORS_ALLOWED_ORIGINS = ["http://localhost:3000", "http://frontend:3000"]
-# else:
-#     CORS_ALLOW_ALL_ORIGINS = True
-# CORS_ALLOWED_ORIGINS = ["http://localhost:3000", "http://frontend:3000"]
-# CORS_ALLOW_ALL_ORIGINS = False
-CORS_ALLOW_ALL_ORIGINS = False  # MUST be False if using credentials
+CORS_ALLOW_ALL_ORIGINS = False
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # Next.js default
-    "http://localhost:5173",  # Vite default (if you ever use it)
-    # add others as needed
 ]
 
 CORS_ALLOW_CREDENTIALS = True

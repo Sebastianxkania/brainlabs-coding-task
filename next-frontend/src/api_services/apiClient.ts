@@ -1,8 +1,6 @@
 import axios from 'axios';
 
 import Cookies from "js-cookie";
-const csrftoken = Cookies.get("csrftoken");
-console.log('CSRF Token from Cookies:', csrftoken);
 
 export const apiClient = axios.create({
   baseURL: process.env.NEXT_PUBLIC_BACKEND_URL!,
@@ -11,12 +9,8 @@ export const apiClient = axios.create({
   withCredentials: true,
   headers: {
     'Content-Type': 'application/json',
-    // 'X-CSRFToken': csrftoken || '', // Include CSRF token in headers
-
-
   },
 });
-
 
 // Interceptor to add fresh CSRF token from cookie
 apiClient.interceptors.request.use(config => {
